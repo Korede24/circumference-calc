@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <style>
+        body{
+            background-color: blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        section{
+            background-color: pink;
+            height: 300px;
+            width: 300px;
+            position: absolute;
+            top: 150px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1{
+            font-size: 30PX;
+        }
+
+        p{
+            font-size: 18px;
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        input{
+            height: 20px;
+            width: 20px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+        button{
+            margin-top: 15px;
+            border: none;
+            height: 25px;
+            width: 90px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 16px;
+            border-radius: 3px;
+            background-color: rgb(190, 90, 183);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Guessing game</h1>
+        <p>Guess from 1 to 10</p>
+        <input type="text" id="input">
+        <button onclick="play()" id="numb">Check</button>
+        <p id="dis"></p>
+    </section>
+</body>
+</html>
+<script>
+// let num = 5
+// let mum2 = '5'
+// console.log(num === parseInt(mum2));
+
+let input1 = document.getElementById('input')
+let display = document.getElementById('dis')
+
+    function play(){
+        let random = Math.floor(Math.random() * 10) + 1
+
+        if (random == input1.value) {
+            display.innerHTML = `You guessed right ${random}`
+        }
+        else {
+            display.innerHTML = `You guessed wrong ${random}`
+        }
+    }
+
+    
+    
+    
+</script>
