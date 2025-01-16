@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    section {
+        /* background-color: pink; */
+         display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .box1 {
+        height: 50px;
+        width: 345px;
+        background-color: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .box2 {
+        height: 50px;
+        width: 345px;
+        /* background-color: blue; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .all {
+        display: flex;
+    }
+
+    p {
+        height: 40px;
+        width: 100%;
+        /* background-color: rgb(14, 172, 12); */
+        border: 1px solid black;
+    }
+</style>
+
+<body>
+    <section>
+        <div class="box1">
+            <input type="text" id="in1">
+            <!-- <input type="text" id="in2"> -->
+        </div>
+        <div class="all">
+            <div class="box2">
+                <button onclick="add()"> Circumfrence </button>
+                <button onclick="minus()"> - </button>
+                <!-- <button onclick="mul()"> * </button>
+                <button onclick="division()"> / </button> -->
+            </div>
+            <p id="p"> </p>
+        </div>
+
+    </section>
+
+</body>
+
+</html>
+<script>
+
+    let input1 = document.getElementById('in1')
+    // let input2 = document.getElementById('in2')
+    let div = document.getElementById('p')
+    // let constant = 2
+    let radius1 = 3.142
+    
+
+    function add() {
+        let myAns = Number(input1.value)  * 2 * (radius1)
+        div.innerHTML = `The circumference of is ${myAns} `
+
+        input1.value = ''
+        input2.value = ''
+    }
+    function minus() { 
+        let myAns = Number(input1.value)  * Number(input1.value) * (radius1)
+        div.innerHTML = `<b> ${myAns}</b>`
+    }
+
+    function mul() {
+        let myAns = Number(input1.value) * Number(input2.value)
+        div.innerHTML = myAns
+    }
+
+    function division() {
+        let myAns = Number(input1.value) / Number(input2.value)
+        div.innerHTML = myAns
+    }
+    //      let input1 = document.getElementById('in')
+    //     let div  = document.getElementById('p')
+    // console.log(input1);
+    // function doSmth(params) {
+    //     div.innerHTML = myAns
+    // }
+
+
+
+    //Assignment Operators 
+    //Reassignment of Operators
+    let x = 7
+    console.log(x);
+    //x = x + 6 | x = x - 5 | x = x/2 | x = x * 5 | x = x % 2 | x = x ** 2
+    x += 6
+    x -= 6
+    x /= 2
+    x *= 5
+    x %= 2
+    x **= 2
+    console.log(x);
+</script>

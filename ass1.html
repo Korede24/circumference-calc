@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="text" id="in1"> 
+   <button onclick="circ()">Circumfrence</button>
+   <button onclick="are()">Area</button>
+   <p id="Ans">
+
+   </p>
+</body>
+</html>
+<script>
+    let input = document.getElementById('in1')
+    let radius1 = 3.142
+    let div = document.getElementById('Ans')
+    
+    function circ() {
+        let myAns = Number(input.value)  * 2 * (radius1)
+        div.innerHTML = `The circumference of is ${myAns} ` 
+    }
+
+    function are() {
+        let myAns = Number(input.value)  * Number(input.value) * (radius1)
+        div.innerHTML =`The Area  of is ${myAns} ` 
+    }
+
+
+    // function circ() {
+    //     let myAns = Number(input.value) * (radius1) * 2
+    //     myAns.innerHTML = Ans
+    // }
+</script>
