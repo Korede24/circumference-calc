@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="myInput">
+    <button onclick="score()">Check score</button>
+    <p id="display">
+
+    </p>
+</body>
+
+</html>
+<script>
+    let myscore = document.getElementById('myInput')
+    let div = document.getElementById('display')
+
+    function score() {
+        //    console.log("what is your score?");
+
+        // if (myscore.value <= 30) {
+        //     let output = 'you failed'
+        //     div.innerHTML = output
+
+
+        // } else {
+
+        //     if (myscore.value <= 50) {
+        //         let output = 'you tried'
+        //         div.innerHTML = output
+        //     } else {
+        //         if (myscore.value >= 50) {
+        //             let output = 'you passed'
+        //             div.innerHTML = output
+        //         }
+        //     }
+
+        // }
+
+        if(myscore.value <= 30){
+            div.innerHTML = '<b>you failed</b>'
+           
+        }
+        else{
+            if(myscore.value <=50){
+                div.innerHTML = 'you tried'
+            }
+            else
+            if(myscore.value >=50){
+                div.innerHTML = 'you passed'
+            }
+        }
+         myscore.value = ''
+    }
+</script>

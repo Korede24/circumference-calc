@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input">
+    <button onclick="check()">CHECK</button>
+</body>
+
+</html>
+<script>
+    let myInput = document.getElementById('input')
+
+    function check() {
+        let key = myInput.value.trim().toLowerCase()
+        switch (key) {
+            case 'january':
+                alert('January has 31 days')
+                console.log("yeah")
+                break;
+            case 'february':
+                alert('February has 29 days')
+                console.log("yeah")
+                break;
+            case 'march':
+                alert('March has 31 days')
+                console.log("yeah")
+                break;
+            case 'april':
+                alert('April has 30 days')
+                console.log("yeah")
+                break;
+            case 'may':
+                alert('May has 31 days')
+                console.log("yeah")
+                break;
+            case 'june':
+                alert('June has 30 days')
+                console.log("yeah")
+                break;
+            case 'july':
+                alert('July has 31 days')
+                console.log("yeah")
+                break;
+            case 'august':
+                alert('August has 31 days')
+                console.log("yeah")
+                break;
+            case 'september':
+                alert('September has 30 days')
+                console.log("yeah")
+                break;
+            case 'october':
+                alert('October has 31 days')
+                console.log("yeah")
+                break;
+            case 'november':
+                alert('November has 30 days')
+                console.log("yeah")
+                break;
+            case 'december':
+                alert('December has 31 days')
+                console.log("yeah")
+                break;
+            case "":
+                alert('Invalid')
+                console.log("yeah")
+                break;
+            default:
+                alert('Input a valid month')
+                break;
+        }
+    }
+</script>
