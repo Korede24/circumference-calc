@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p{
+        /* display: flex;
+        flex-direction: column; */
+    }
+</style>
+<body>
+    <input type="text" id="input1">
+    <button onclick="add()">ADD</button>
+    <!-- <button onclick="rem()">REMOVE</button> -->
+    <p id="display" > </p>
+</body>
+
+</html>
+
+<script>
+    let myInput = document.getElementById('input1')
+    let output = document.getElementById('display')
+    let name = [ ]
+    console.log(name)
+    
+    function add() {
+        name.push(myInput.value)
+        output.innerHTML = name.join('</li><li>');
+
+        output.innerHTML= `<li>${name}<button onclick="rem()">REMOVE</button></li>`
+        console.log(name)
+    }
+
+    function rem() {
+        name.pop(myInput.value)
+        // output.innerHTML = "block"
+        output.innerHTML= `${name}<button onclick="rem()">REMOVE</button>`
+        console.log(name)
+    }
+
+    for (let i = 12; i >= 1; i--){
+        console.log(`${2} * ${i} = ${2 *i}`);
+        
+    }
+</script>

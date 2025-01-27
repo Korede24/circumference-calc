@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* height: 100vh; */
+        }
+
+        .box,
+        .box2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <p>Enter the first number for the multiplication table</p><input type="text" id="input1"
+            placeholder="Start number">
+    </div>
+    <div class="box2">
+        <p>Enter the last number for the multiplication table</p><input type="text" id="input2"
+            placeholder="End number">
+    </div>
+    <button onclick="gen()">Generate Tables</button>
+    <div id="display">
+
+    </div>
+</body>
+
+</html>
+<script>
+    let inp1 = document.getElementById('input1')
+    let inp2 = document.getElementById('input2')
+    let dis = document.getElementById('display')
+    function gen() {
+        //alert('my name')
+        // let dis = document.getElementById('display');
+         
+        for (let num = inp1.value; num <= inp2.value; num++) {
+            for (let i = 1; i <= 12; i++) {
+
+                dis.innerHTML += (`<border><table><td><tr>${num} * ${i} = ${num * i}<tr><td><table><border>`);
+
+                console.log(`${num} * ${i} = ${num * i}`);
+            }
+        }
+        
+    }
+    
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="min-num" placeholder="Minimum Number">
+    <input type="number" id="max-num" placeholder="Maximum Number">
+    <button id="generate-btn">Generate Table</button>
+    <div id="table-container"></div>
+</body>
+
+</html>
+<script>
+    let minNumInput = document.getElementById('min-num');
+    let maxNumInput = document.getElementById('max-num');
+    let generateBtn = document.getElementById('generate-btn');
+    let tableContainer = document.getElementById('table-container');
+
+    generateBtn.addEventListener('click', generateTable);
+
+    function generateTable() {
+        let minNum = parseInt(minNumInput.value);
+        let maxNum = parseInt(maxNumInput.value);
+        let tables = "";
+
+        for (let num = minNum; num <= maxNum; num++) {
+            tables += `<h2>Multiplication Table for ${num}:</h2>`;
+            tables += "<table border='1'>";
+            for (let i = 1; i <= 10; i++) {
+                tables += `<p>${num} x ${i}</td><td>${num * i}</p>`;
+            }
+            tables += "</table><br><br>";
+        }
+
+        tableContainer.innerHTML = tables;
+    }
+
+</script>
