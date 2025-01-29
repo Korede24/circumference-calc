@@ -59,16 +59,33 @@
     function gen() {
         //alert('my name')
         // let dis = document.getElementById('display');
-         
-        for (let num = inp1.value; num <= inp2.value; num++) {
+
+        // for (let num = inp1.value; num <= inp2.value; num++) {
+        //     for (let i = 1; i <= 12; i++) {
+
+        //         dis.innerHTML += (`<p>${num} * ${i} = ${num * i}<p/>`);
+
+        //         console.log(`${num} * ${i} = ${num * i}`);
+        //     }
+        // }
+        if (inp1.value == "") {
+            alert('Please insert a valid number')
+        } else if (inp2.value == "") {
+            alert('Please insert a valid number')
+        } else if (inp1.value < 0) {
+            alert('Please insert a positive number')
+        } else if (inp2.value < 0) {
+            alert('Please insert a positive number')
+        } else if (inp1.value > inp2.value) {
+            alert('Please insert a lower number in First Input')
+        } else {
+            for (let index = inp1.value; index <= inp2.value; index++) {
+                console.log(index);
+                dis.innerHTML += `<h1> Multiplication Table for ${index} </h1>`
             for (let i = 1; i <= 12; i++) {
-
-                dis.innerHTML += (`<border><table><td><tr>${num} * ${i} = ${num * i}<tr><td><table><border>`);
-
-                console.log(`${num} * ${i} = ${num * i}`);
+                dis.innerHTML += `<p>${index} * ${i} = ${index * i}</p >`
             }
         }
-        
+        }
     }
-    
 </script>

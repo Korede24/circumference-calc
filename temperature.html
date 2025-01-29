@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: aqua;
+        }
+
+        input{
+            height: 50px;
+            width: 200px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+
+        button{
+            margin-top: 20px;
+            height: 30px;
+            width: 100px;
+            border-radius: 5px;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        div{
+            height: 40px;
+            width: 100px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="number" id="input1" placeholder="Celcius°C">
+    <button onclick="calc()">Convert</button>
+    <div id="display">
+
+    </div>
+</body>
+
+</html>
+<script>
+    let inp1 = document.getElementById('input1')
+    let dis = document.getElementById('display')
+    function calc() {
+        // alert('my name')
+        console.log(inp1.value);
+
+        if (inp1.value == '') {
+            alert('insert a valid number')
+        } else {
+            dis.innerHTML = calculate(inp1.value)
+        }
+    }
+    function calculate(inp1) {
+        // alert('my name')
+        return `${(inp1 * 9 / 5) + 32}°Farheint`
+    }
+</script>
