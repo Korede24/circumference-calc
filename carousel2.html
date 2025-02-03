@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color</title>
+    <style>
+        #display{
+            height: 200px;
+            width: 200px;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="back()">Prev</button>
+    <img id="display" src="" alt="">
+    <button onclick="next()">Next</button>
+    <!-- <div id="display"></div> -->
+
+</body>
+</html>
+<script>
+    let count = 0
+    let dis = document.getElementById('display')
+    let arr = ["./percussion-therapy.jpg", "./yacht.jpg", "./3D-watch-model.jpg", "./yacht.jpg", "./percussion-therapy.jpg"]
+    dis.src = arr[count]
+    function next() {
+        if(count < arr.length-1){
+            count++
+        
+        }else{
+            count = 0
+        }
+        dis.src = arr[count] 
+    }
+    function back() {
+        if(count > 0){
+            count--
+        console.log(count);
+        
+        }else{
+            count = 0
+        }
+        dis.src = arr[count] 
+    }
+    console.log(color);
+
+
+    
+</script>
