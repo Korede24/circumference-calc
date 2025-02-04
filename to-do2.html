@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do2</title>
+</head>
+
+<body>
+    <input type="text" id="todo">
+    <input type="text" id="todo1">
+    <button onclick="addTodo()">ADD TO DO</button>
+    <div id="display">
+
+    </div>
+</body>
+
+</html>
+<script>
+    let inp1 = document.getElementById('todo')
+    let inp2 = document.getElementById('todo1')
+    let dis = document.getElementById('display')
+    let data = []
+
+    function display() {
+        dis.innerHTML = ''
+        for (let index = 0; index < data.length; index++) {
+
+            dis.innerHTML += `${data[index]}<button onclick = editVal(${index})>Edit</button> <button onclick = del(${index})>Delete</button>`
+            // dis.innerHTML = `${inp1.value}`
+
+            
+        }
+    }
+    //  let combination = `${inp1.value}${inp2.value}`
+    function addTodo() {
+        if (inp1.value.trim() == '' || inp2.value.trim() == '') {
+            alert('Input a value')
+        } else {
+            // let combination = `${inp1.value}${inp2.value}`
+            data.push(`<h1>${inp1.value}</h1>${inp2.value}`)
+            console.log(data);
+
+            inp1.value = ''
+            inp2.value = ''
+            display()
+        }
+    }
+
+    function editVal(i) {
+        let promptValue = prompt('Enter edit value here', data[i])
+        if (promptValue.trim() === '' || promptValue === data[i]) {
+            alert('invalid edit value')
+        } else {
+            data.splice(i, 1, promptValue)
+            display()
+        }
+    }
+
+    function del(i) {
+        data.splice(i, 1)
+        display()
+    }
+
+    
+</script>

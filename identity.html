@@ -140,13 +140,13 @@
     let count = 0
     const studentinfo = document.getElementById("displayinfo")
     let arr = [
-        { type: "STUDENT", picture: "./percussion-therapy.jpg", name: "Ibrahim Muzammil", dept: "Software Development", matric:241429 },
-        { type: "STUDENT", picture: "./yacht.jpg", name: "Akorede Muzammil", dept: "Java Development", matric: 233429 },
-        { type: "STUDENT", picture: "./3D-watch-model.jpg", name: "Muzammil Muzammil", dept: "Data Development", matric: 222429 },
-        { type: "STUDENT", picture: "./percussion-therapy.jpg", name: "Aisha Ibrahim", dept: "UI/UX Development", matric:211429 },
-        { type: "STUDENT", picture: "./yacht.jpg", name: "Faridah Ibrahim", dept: "Engineering Development", matric:200429 },
+        { type: "STUDENT", picture: "percussion-therapy.jpg", name: "Ibrahim Muzammil", dept: "Software Development", matric:241429 },
+        { type: "STUDENT", picture: "yacht.jpg", name: "Akorede Muzammil", dept: "Java Development", matric: 233429 },
+        { type: "STUDENT", picture: "3D-watch-model.jpg", name: "Muzammil Muzammil", dept: "Data Development", matric: 222429 },
+        { type: "STUDENT", picture: "percussion-therapy.jpg", name: "Aisha Ibrahim", dept: "UI/UX Development", matric:211429 },
+        { type: "STUDENT", picture: "yacht.jpg", name: "Faridah Ibrahim", dept: "Engineering Development", matric:200429 },
     ]
-    type.innerText = arr[count].type
+    type.textContent = arr[count].type
     pics.src = arr[count].picture
     name.innerText = arr[count].name
     dept.innerText = arr[count].dept
@@ -160,24 +160,54 @@
     //     `
     // }
 
+    // function next() {
+    //     if (count < arr.length - 1) {
+    //         count++
+    //         console.log(count);
+
+    //     } else {
+    //         count = 0
+    //     }
+    //     type.innerText = arr[count].type
+    //     pics.src = arr[count].picture
+    //     name.innerText = arr[count].name
+    //     dept.innerText = arr[count].dept
+    //     matric.innerHTML =`StudentID| <b>${arr[count].matric}</b>`
+    // }
+
     function next() {
-        if (count < arr.length - 1) {
-            count++
+        if (count == arr.length - 1) {
+            count = 0
             console.log(count);
 
         } else {
-            count = 0
+            count++
         }
         type.innerText = arr[count].type
         pics.src = arr[count].picture
         name.innerText = arr[count].name
         dept.innerText = arr[count].dept
-       matric.innerHTML =`StudentID| <b>${arr[count].matric}</b>`
+        matric.innerHTML =`StudentID| <b>${arr[count].matric}</b>`
     }
 
+    // function prev() {
+    //     if (count > 0) {
+    //         count--
+    //         console.log(count);
+
+    //     } else {
+    //         count = 0
+    //     }
+    //     type.innerText = arr[count].type
+    //     pics.src = arr[count].picture
+    //     name.innerText = arr[count].name
+    //     dept.innerText = arr[count].dept
+    //     matric.innerHTML =`StudentID| <b>${arr[count].matric}</b>`
+    // }
+
     function prev() {
-        if (count > 0) {
-            count--
+        if (count === 0) {
+            count = arr.length -1 
             console.log(count);
 
         } else {
