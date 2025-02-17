@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100%;
+            background-color: black;
+        }
+
+        .box1 {
+            height: 450px;
+            width: 320px;
+            background-color: rgb(174, 170, 170);
+            border-radius: 10px;
+        }
+
+        .heading {
+            height: 50px;
+            width: 320px;
+            /* background-color: blue; */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box2 {
+            height: 300px;
+            width: 320px;
+            /* background-color: red; */
+            padding-top: 10px;
+        }
+
+        .box2 input {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 250px;
+            margin: auto;
+            margin-top: 10px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            padding-left: 20px;
+        }
+
+        .box3 {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10px;
+            align-items: center;
+            height: 50px;
+            width: 320px;
+            /* background-color: burlywood; */
+        }
+
+        .box3-1 {
+            display: flex;
+            font-size: 13px;
+        }
+
+        .box4 {
+            height: 50px;
+            width: 320px;
+            /* background-color: blue; */
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box4 button {
+            height: 30px;
+            width: 100px;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="heading">
+            Sign up
+        </div>
+        <div class="box2">
+            <input type="text" id="userfirstname" placeholder="Firstname">
+            <input type="text" id="userlastname" placeholder="Lastname">
+            <input type="email" id="useremail" placeholder="E-mail">
+            <input type="text" id="userpassword" placeholder="Password">
+            <input type="text" id="userconfirm" placeholder="Confirm Password">
+        </div>
+        <div class="box3">
+            <div class="box3-1">
+                <input type="checkbox" placeholder="" id="Check">
+                <p>Agree to Terms & Conditions</p>
+            </div>
+
+            <a href="">Forgot Password</a>
+        </div>
+        <div class="box4">
+            <button id="signup" onclick="save()">Sign up</button>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let firstname = "userfirstname.value"
+    // let inp1 = input1.value.trim()
+    // let inp2 = input2.value.trim()
+    // let inp3 = input3.value.trim()
+    // let inp4 = input4.value.trim()
+    // let inp5 = input5.value.trim()
+    // let database = [
+    //     { firstname: " " },
+    //     { lastname: " " },
+    //     { email: " " },
+    //     { password: " " },
+    //     { confirmpassword: " " },
+    // ]
+
+    // firstname.innerText = database.firstname
+    // lastname.innerText = database.lastname
+    // email.innerText = database.email
+    // password.innerText = database.password
+    // confirmpassword.innerText = database.confirmpassword
+
+    function save() {
+
+        console.log(firstname);
+        // console.log(inp2);
+        // console.log(inp3);
+        // console.log(inp4);
+        
+        // if () {
+        //     alert('Input a value')
+        // } else {
+        //     let user = {
+        //         firstname:inp1.value,
+        //         lastname:inp2.value,
+        //         email:inp3.value,
+        //         password:inp4.value,
+        //         confirmpassword:inp5.value
+        //     }
+
+        //     database.push(user)
+        //     console.log(database);
+
+        //     inp1.value = ''
+        //     inp2.value = ''
+        //     inp3.value = ''
+        //     inp4.value = ''
+        //     inp5.value = ''
+
+        //     firstname.innerText = database.firstname
+        //     lastname.innerText = database.lastname
+        //     email.innerText = database.email
+        //     password.innerText = database.password
+        //     confirmpassword.innerText = database.confirmpassword
+        }
+    
+</script>

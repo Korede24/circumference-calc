@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select name="" id="provider">
+      <option value="">CHOOSE PROVIDER</option>
+      <option value="MTN">MTN</option>
+      <option value="GLO">GLO</option>
+      <option value="AIRTEL">AIRTEL</option>
+      <option value="9MOBILE">9MOBILE</option>
+    </select>
+
+    <select name="" id="amount">
+      <option value="">CHOOSE AMOUNT</option>
+      <option value="100">100</option>
+      <option value="200">200</option>
+      <option value="500">500</option>
+      <option value="1000">1000</option>
+    </select>
+
+    <button onclick="generate()">Generate Pin</button>
+    <p id="myPin"></p>
+
+    <input
+      type="text"
+      value="*311*Pin#"
+      id="input1"
+      placeholder="Load your card here"
+    />
+    <button onclick="load()">Load card</button>
+
+    <p id="bal">Airtime balance:</p>
+
+    <div>
+      <div style="display: flex; margin-bottom: 30px">
+        <button onclick="allcard()">All card</button>
+        <button onclick="unUsed()">Unused</button>
+        <button onclick="Used()">Used</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>S/N</th>
+            <th>PROVIDER</th>
+            <th>AMOUNT</th>
+            <th>PIN</th>
+            <th>isUsed</th>
+          </tr>
+        </thead>
+        <tbody id="tablebody"></tbody>
+      </table>
+    </div>
+  </body>
+</html>
+<script>
+  let database = JSON.parse(localStorage.getItem("CardDatabase")) || [];
+  console.log(database);
+  let airtime = document.getElementById("bal");
+
+  diplayCard(database);
+  let cardId = 0;
+  let index = 0;
+  function generate() {
+    if (provider.value == "") {
+      alert("Choose a provider");
+    } else if (amount.value == "") {
+      alert("Choose a amount");
+    } else {
+      let pin = "";
+      for (let index = 0; index < 15; index++) {
+        let cardnumber = Math.floor(Math.random() * 10);
+        pin += cardnumber;
+      }
+
+      myPin.innerHTML = pin;
+      console.log(pin, pin.length);
+      index++;
+      console.log(index);
+
+      let user = {
+        SN: index,
+        Provider: provider.value,
+        Amount: amount.value,
+        Pin: pin,
+        isUsed: false,
+      };
+
+      database.push(user);
+      localStorage.setItem("CardDatabase", JSON.stringify(database));
+      console.log(database);
+      diplayCard(database);
+    }
+  }
+
+  function diplayCard(arr) {
+    tablebody.innerHTML = "";
+    arr.forEach((user, i) => {
+      tablebody.innerHTML += `<tr>
+                <td>${i + 1}</td>
+                <td>${user.Provider}</td>
+                <td>${user.Amount}</td>
+                <td>${user.Pin}</td>
+                <td>${user.isUsed}</td>
+            </tr>`;
+    });
+  }
+
+  function load() {
+    let input = input1.value;
+    console.log(input);
+
+    if (input == "*311*Pin#") {
+      alert("input your card");
+    } else if (!input.startsWith("*311*")) {
+      alert("invalid format");
+    } else if (!input.endsWith("#")) {
+      alert("invalid format");
+    } else if (input.length < 21) {
+      alert("invalid card number");
+    } else {
+      let card = input.slice(5, 20);
+      console.log(card);
+      let cardIndex = database.find((user) => user.Pin == card);
+      cardId = database.findIndex((user) => user.Pin == card);
+      if (!cardIndex) {
+        alert("invalid pin");
+      } else if (cardIndex.isUsed === true) {
+        alert("card has been used");
+      } else {
+        alert(`your ${database[cardId].Amount} rechage card was successful`);
+        console.log(cardId);
+
+        database[cardId] = {
+          SN: database[cardId].SN,
+          Provider: database[cardId].Provider,
+          Amount: database[cardId].Amount,
+          Pin: database[cardId].Pin,
+          isUsed: true,
+        };
+
+        function airtimeBal() {
+          let balance = parseInt(database[amount.value]);
+          let sum = 0;
+          database.forEach((card) => {
+            sum += parseInt(card.Amount);
+            airtime.innerHTML = `<p>Airtime balance: ${sum}</p>`;
+          });
+          console.log(sum);
+        }
+        console.log(database[cardId]);
+        localStorage.setItem("CardDatabase", JSON.stringify(database));
+        diplayCard(database);
+        airtimeBal();
+      }
+    }
+  }
+  function unUsed() {
+    let usedCard = database.filter((Obj, i, card) => {
+      return Obj.isUsed == false;
+    });
+    diplayCard(usedCard);
+  }
+
+  function Used() {
+    let usedCard = database.filter((Obj, i, card) => {
+      return Obj.isUsed == true;
+    });
+    diplayCard(usedCard);
+  }
+
+  function allcard() {
+    diplayCard(database);
+  }
+
+  // function airtimeBal() {
+  //   let balance = parseInt(database[amount.value]);
+  //   let sum = 0;
+  //   database.forEach((card) => {
+  //     if (!card.isUsed) {
+  //       sum += parseInt(card.Amount);
+  //     } else if (card.isUsed) {
+  //       sum += parseInt(card.Amount);
+  //     } else {
+  //       sum += parseInt(card.Amount);
+  //     }
+  //   });
+  //   console.log(sum);
+  //   console.log(sum);
+  // }
+</script>

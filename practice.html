@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/071b79f7e5.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        background-color: rgb(218, 26, 26);
+      }
+
+      .box1 {
+        height: 450px;
+        width: 320px;
+        background-color: rgb(174, 170, 170);
+        border-radius: 10px;
+      }
+
+      .heading {
+        height: 50px;
+        width: 320px;
+        /* background-color: blue; */
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box2 {
+        height: 300px;
+        width: 320px;
+        /* background-color: red; */
+        padding-top: 10px;
+      }
+
+      .box2 input {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 250px;
+        margin: auto;
+        margin-top: 10px;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        padding-left: 20px;
+      }
+
+      .pass {
+        position: relative;
+      }
+
+      .pass button {
+        position: absolute;
+        top: 30%;
+        right: 50px;
+        background-color: transparent;
+        border: none;
+      }
+
+      .box3 {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        align-items: center;
+        height: 50px;
+        width: 320px;
+        /* background-color: burlywood; */
+      }
+
+      .box3-1 {
+        display: flex;
+        font-size: 13px;
+      }
+
+      .box4 {
+        height: 50px;
+        width: 320px;
+        /* background-color: blue; */
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .box4 button {
+        height: 30px;
+        width: 100px;
+        border: none;
+        border-radius: 10px;
+      }
+
+      #display {
+        color: white;
+        /* border: 1px solid white; */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box1">
+      <div class="heading">Sign up</div>
+      <div class="box2">
+        <input type="text" id="userfirstname" placeholder="Firstname" />
+        <input type="text" id="userlastname" placeholder="Lastname" />
+        <input type="email" id="useremail" placeholder="E-mail" />
+        <div class="pass">
+          <input type="password" id="userpassword" placeholder="Password" />
+          <button onclick="show()"><i class="fa-solid fa-eye"></i></button>
+        </div>
+        <div class="pass">
+          <input
+            type="password"
+            id="userconfirm"
+            placeholder="Confirm Password"
+          />
+          <button onclick="showed()"><i class="fa-solid fa-eye"></i></button>
+        </div>
+      </div>
+      <div class="box3">
+        <div class="box3-1">
+          <input type="checkbox" placeholder="" id="Check" />
+          <p>Agree to Terms & Conditions</p>
+        </div>
+
+        <a href="">Forgot Password</a>
+      </div>
+      <div class="box4">
+        <button id="signup" onclick="save()">Sign up</button>
+      </div>
+      <div id="dis"></div>
+      <button onclick="filter1(true)">FilterTrue</button>
+      <button onclick="filter2(false)">FilterFalse</button>
+      <button onclick="filter3()">Allfilter</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  let firstname = document.getElementById("userfirstname");
+  let lastname = document.getElementById("userlastname");
+  let email = document.getElementById("useremail");
+  let password = document.getElementById("userpassword");
+  let confirm = document.getElementById("userconfirm");
+  let chk = document.getElementById("Check");
+  let database = [];
+
+  function save() {
+    let firstname = document.getElementById("userfirstname").value.trim();
+    let lastname = document.getElementById("userlastname").value.trim();
+    let email = document.getElementById("useremail").value.trim();
+    let password = document.getElementById("userpassword").value.trim();
+    let confirm = document.getElementById("userconfirm").value.trim();
+    let chk = document.getElementById("Check").checked;
+
+    if (!firstname || !lastname || !email || !password || !confirm || !chk) {
+      alert("all input mandatory");
+    } else if (password.lenght < 8) {
+      alert("password cannot be less than 8");
+    }
+  }
+</script>
